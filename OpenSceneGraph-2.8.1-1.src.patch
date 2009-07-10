@@ -1,0 +1,27 @@
+--- origsrc/OpenSceneGraph-2.8.1/CMakeLists.txt	2009-05-19 11:05:19.000000000 -0500
++++ src/OpenSceneGraph-2.8.1/CMakeLists.txt	2009-06-10 11:49:32.845416900 -0500
+@@ -41,10 +41,6 @@ SET(OSG_PLUGINS osgPlugins-${OPENSCENEGR
+ 
+ SET(OSG_PLUGIN_PREFIX "")
+ 
+-IF (CYGWIN)
+-    SET(OSG_PLUGIN_PREFIX "cygwin_")
+-ENDIF(CYGWIN)
+-
+ IF(MINGW)
+     SET(OSG_PLUGIN_PREFIX "mingw_")
+ ENDIF(MINGW)
+--- origsrc/OpenSceneGraph-2.8.1/src/osgDB/Registry.cpp	2009-05-07 08:24:49.000000000 -0500
++++ src/OpenSceneGraph-2.8.1/src/osgDB/Registry.cpp	2009-06-10 11:51:01.585522900 -0500
+@@ -648,9 +648,9 @@ std::string Registry::createLibraryNameF
+ 
+ #if defined(__CYGWIN__)
+     #ifdef _DEBUG
+-        return prepend+"cygwin_"+"osgdb_"+lowercase_ext+OSG_DEBUG_POSTFIX_WITH_QUOTES+".dll";
++        return prepend+"osgdb_"+lowercase_ext+OSG_DEBUG_POSTFIX_WITH_QUOTES+".dll";
+     #else
+-        return prepend+"cygwin_"+"osgdb_"+lowercase_ext+".dll";
++        return prepend+"osgdb_"+lowercase_ext+".dll";
+     #endif
+ #elif defined(__MINGW32__)
+     return prepend+"mingw_"+"osgdb_"+lowercase_ext+".dll";

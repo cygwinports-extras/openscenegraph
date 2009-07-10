@@ -1,0 +1,10 @@
+inherit cmake
+
+DESCRIPTION="High-performance 3D graphics toolkit"
+HOMEPAGE="http://www.openscenegraph.org/projects/osg"
+SRC_URI="http://www.openscenegraph.org/downloads/stable_releases/${P%.0}/source/${P}.zip"
+
+PKG_NAMES="${PN} libosg2 libosg-devel"
+OpenSceneGraph_CONTENTS="usr/bin/*.exe usr/share/doc/"
+libosg2_CONTENTS="usr/bin/*-2.dll usr/lib/osgPlugins*/"
+libosg_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
